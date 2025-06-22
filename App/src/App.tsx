@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { AppProvider } from './contexts/AppContext';
 import { NotificationProvider } from './contexts/NotificationContext';
@@ -17,6 +17,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 
 function App() {
   return (
+    <BrowserRouter  basename='/NWC-SCADA'>
     <AuthProvider>
       <AppProvider>
         <NotificationProvider>
@@ -43,6 +44,7 @@ function App() {
         </NotificationProvider>
       </AppProvider>
     </AuthProvider>
+    </BrowserRouter>
   );
 }
 
