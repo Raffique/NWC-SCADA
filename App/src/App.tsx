@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { AppProvider } from './contexts/AppContext';
 import { NotificationProvider } from './contexts/NotificationContext';
@@ -17,7 +17,6 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 
 function App() {
   return (
-    // <BrowserRouter  basename='/NWC-SCADA'>
     <AuthProvider>
       <AppProvider>
         <NotificationProvider>
@@ -42,30 +41,11 @@ function App() {
             </Route>
             <Route path="*" element={<NotFound />} />
 
-            <Route path="/NWC-SCADA/login" element={<Login />} />
-            <Route
-              path="/NWC-SCADA"
-              element={
-                <ProtectedRoute>
-                  <Layout />
-                </ProtectedRoute>
-              }
-            >
-              
-              <Route index element={<Dashboard />} />
-              <Route path="/NWC-SCADA/schematic" element={<SystemSchematic />} />
-              <Route path="/NWC-SCADA/alarms" element={<AlarmManagement />} />
-              <Route path="/NWC-SCADA/historical" element={<HistoricalData />} />
-              <Route path="/NWC-SCADA/map" element={<GisMap />} />
-              <Route path="/NWC-SCADA/equipment" element={<EquipmentControl />} />
-              <Route path="/NWC-SCADA/devices" element={<DeviceManagement />} />
-            </Route>
-            <Route path="*" element={<NotFound />} />
+            
           </Routes>
         </NotificationProvider>
       </AppProvider>
     </AuthProvider>
-    // </BrowserRouter>
   );
 }
 
